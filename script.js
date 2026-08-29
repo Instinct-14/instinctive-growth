@@ -1,4 +1,4 @@
-f// Reveal sections as they enter the screen
+// Reveal sections as they enter the screen
 const revealElements = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(
