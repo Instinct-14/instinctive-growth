@@ -1,3 +1,26 @@
+f// Reveal sections as they enter the screen
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.12
+  }
+);
+
+revealElements.forEach((element) => {
+  revealObserver.observe(element);
+});
+
+
+// Contact form
 function handleSubmit(event) {
   event.preventDefault();
 
@@ -37,4 +60,15 @@ ${message}
   }
 
   form.reset();
+}
+
+
+// Mobile menu
+const menuButton = document.querySelector(".menu");
+const nav = document.querySelector(".nav nav");
+
+if (menuButton && nav) {
+  menuButton.addEventListener("click", () => {
+    nav.classList.toggle("mobile-open");
+  });
 }
