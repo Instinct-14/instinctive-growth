@@ -13,7 +13,12 @@
 .hero-mark{height:520px;display:flex;align-items:center;justify-content:center;position:relative}.orb{position:absolute;width:440px;height:440px;border-radius:50%;border:1px solid #c9c8c2}.orb:after{content:"";position:absolute;inset:42px;border:1px solid #deddd8;border-radius:50%}.mark-card{position:relative;width:330px;height:330px;background:#fff;border:1px solid #e0dfda;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 80px rgba(0,0,0,.08)}.mark-card img{width:240px;height:240px;object-fit:cover;mix-blend-mode:multiply}.hero-mark>p{position:absolute;bottom:35px;right:4%;font-size:9px;letter-spacing:.3em;line-height:1.5;text-align:right}.hero-mark>p span{letter-spacing:.55em}
 .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:62px 8vw}
 .section{padding:140px 10vw}.section-heading h2{font-size:clamp(45px,6vw,82px);line-height:1;letter-spacing:-.05em;margin:0}.process .section-heading{max-width:800px}.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:100px}.step{padding:28px 30px 0 0;border-right:1px solid var(--line);margin-right:30px}.step:last-child{border:0;margin:0}.step span,.service span{font-size:10px;letter-spacing:.15em;color:#888}.step h3{font-size:23px;margin:55px 0 12px}.step p{font-size:14px;color:#666;max-width:330px;line-height:1.8}
-.dark-section{background:#080808;color:#fff;padding:140px 10vw}.light .eyebrow{color:#999}.services-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #333;margin-top:100px}.service{padding:35px 50px 50px 0;border-bottom:1px solid #333}.service:nth-child(odd){border-right:1px solid #333;margin-right:50px}.service:nth-child(even){padding-left:50px}.service h3{font-size:27px;font-weight:500;margin:55px 0 12px}.service p{color:#aaa;max-width:390px;font-size:14px;line-height:1.8}
+.dark-section{background:#080808;color:#fff;padding:140px 10vw}.light .eyebrow{color:#999}.services-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #333;margin-top:100px}
+.service{padding:35px 50px 50px 0;border-bottom:1px solid #333}
+.service:nth-child(odd){border-right:1px solid #333}
+.service:nth-child(even){padding-left:50px}
+.service h3{font-size:27px;font-weight:500;margin:55px 0 12px}
+.service p{color:#aaa;max-width:390px;font-size:14px;line-height:1.8}
 .about{display:grid;grid-template-columns:1fr 1fr;gap:10vw;align-items:center}.about-number{display:flex;align-items:center;justify-content:center}.about-number img{width:min(75%,420px);height:auto;object-fit:contain;mix-blend-mode:multiply}.about-copy h2{
   font-size:clamp(45px,6vw,82px);
   line-height:1;
