@@ -14,7 +14,7 @@ function handleSubmit(event) {
   const form = event.currentTarget;
   const data = new FormData(form);
 
-  const destination = "hello@instinctivegrowth.com";
+  const destination = "nasar@instinctivegrowth.com";
   const subject = encodeURIComponent("New Instinctive Growth inquiry");
 
   const body = encodeURIComponent(
