@@ -1,20 +1,40 @@
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
 function handleSubmit(event) {
   event.preventDefault();
-  const form = event.currentTarget;
-  const data = new FormData(form);
-  const destination = "Nasar@instinctivegrowth.com";
-  const subject = encodeURIComponent("New Instinctive Growth inquiry");
-  const body = encodeURIComponent(
-    `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nWebsite: ${data.get("website")}\n\nGoals:\n${data.get("message")}`
-  );
-  window.location.href = `mailto:${destination}?subject=${subject}&body=${body}`;
-}
 
+  const form = event.target;
+  const data = new FormData(form);
+
+  const name = data.get("name");
+  const email = data.get("email");
+  const website = data.get("website");
+  const message = data.get("message");
+
+  const subject = encodeURIComponent(
+    `Growth Audit Inquiry — ${name}`
+  );
+
+  const body = encodeURIComponent(
+`Hi Nasar,
+
+I'd like to learn more about working with Instinctive Growth.
+
+Name: ${name}
+Work email: ${email}
+Website: ${website || "Not provided"}
+
+What I'm looking to grow:
+${message}
+`
+  );
+
+  window.location.href =
+    `mailto:nasar@instinctivegrowth.com?subject=${subject}&body=${body}`;
+
+  const note = document.getElementById("form-note");
+
+  if (note) {
+    note.textContent = "Opening your email client...";
+  }
+
+  form.reset();
+}
