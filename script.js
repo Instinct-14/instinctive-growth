@@ -1,63 +1,37 @@
-// Reveal website content when it enters the screen
-const revealElements = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, { threshold: 0.12 });
 
-const revealObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.1
-  }
-);
-
-revealElements.forEach((element) => {
-  revealObserver.observe(element);
-});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
 
 // Contact form
 function handleSubmit(event) {
   event.preventDefault();
 
-  const form = event.target;
+  const form = event.currentTarget;
   const data = new FormData(form);
 
-  const name = data.get("name");
-  const email = data.get("email");
-  const website = data.get("website");
-  const message = data.get("message");
-
-  const subject = encodeURIComponent(
-    `Growth Audit Inquiry — ${name}`
-  );
+  const destination = "hello@instinctivegrowth.com";
+  const subject = encodeURIComponent("New Instinctive Growth inquiry");
 
   const body = encodeURIComponent(
-`Hi Nasar,
-
-I'd like to learn more about working with Instinctive Growth.
-
-Name: ${name}
-Work email: ${email}
-Website: ${website || "Not provided"}
-
-What I'm looking to grow:
-${message}
-`
+    `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nWebsite: ${data.get("website")}\n\nGoals:\n${data.get("message")}`
   );
 
-  window.location.href =
-    `mailto:nasar@instinctivegrowth.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:${destination}?subject=${subject}&body=${body}`;
+}
 
-  const note = document.getElementById("form-note");
 
-  if (note) {
-    note.textContent = "Opening your email client...";
-  }
+// Mobile menu
+const menuButton = document.querySelector(".menu");
+const mobileNav = document.querySelector(".nav nav");
 
-  form.reset();
+if (menuButton && mobileNav) {
+  menuButton.addEventListener("click", () => {
+    mobileNav.classList.toggle("mobile-open");
+    menuButton.classList.toggle("active");
+  });
 }
