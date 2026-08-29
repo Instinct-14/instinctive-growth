@@ -1,4 +1,4 @@
-// Reveal sections as they enter the screen
+// Reveal website content when it enters the screen
 const revealElements = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(
@@ -11,7 +11,7 @@ const revealObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.12
+    threshold: 0.1
   }
 );
 
@@ -60,15 +60,4 @@ ${message}
   }
 
   form.reset();
-}
-
-
-// Mobile menu
-const menuButton = document.querySelector(".menu");
-const nav = document.querySelector(".nav nav");
-
-if (menuButton && nav) {
-  menuButton.addEventListener("click", () => {
-    nav.classList.toggle("mobile-open");
-  });
 }
